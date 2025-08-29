@@ -1,3 +1,4 @@
+// swift-tools-version:6.1
 import PackageDescription
 
 let package = Package(
@@ -15,8 +16,7 @@ let package = Package(
             name: "QCartTestApp",
             dependencies: [
                 .product(name: "QCartSDK", package: "qcart-sdk-ios")
-            ],
-            path: "Sources/QCartTestApp"
+            ]            
         )
     ]
 )
