@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  QCartTestAppUIKit2
+//  QCartTestAppUIKit
 //
 //  Created by ec2-user on 30/08/2025.
 //
