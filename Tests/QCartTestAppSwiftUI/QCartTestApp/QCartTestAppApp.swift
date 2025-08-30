@@ -11,8 +11,8 @@ struct QCartTestApp: App {
                 .environmentObject(deeplinkData)
                 .onOpenURL { url in
                     // Pass all URLs to the SDK
-                    DeeplinkManager.shared.handle(url: url) { result in
-                        DispatchQueue.main.async {
+                    DeeplinkManager.shared.handle(url) { result in
+                        Task { @MainActor in
 
                             if let qcart = result.qcart, !qcart.skus.isEmpty {
                                 self.handleQCartSkus(qcart.skus) //QCart SKUs exist → handle them
