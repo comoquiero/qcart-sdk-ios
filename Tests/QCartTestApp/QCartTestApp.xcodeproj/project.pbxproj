@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		578C29292E62F4C500147DAF /* QCartSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 578C29282E62F4C500147DAF /* QCartSDK */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		578C28F82E624FBF00147DAF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				578C29292E62F4C500147DAF /* QCartSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 				578C28EC2E624FBD00147DAF /* QCartTestApp */,
 				578C28FA2E624FBF00147DAF /* QCartTestAppTests */,
 				578C29042E624FBF00147DAF /* QCartTestAppUITests */,
+				578C29272E62F4C500147DAF /* Frameworks */,
 				578C28EB2E624FBD00147DAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +96,13 @@
 				578C29012E624FBF00147DAF /* QCartTestAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		578C29272E62F4C500147DAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +125,7 @@
 			);
 			name = QCartTestApp;
 			packageProductDependencies = (
+				578C29282E62F4C500147DAF /* QCartSDK */,
 			);
 			productName = QCartTestApp;
 			productReference = 578C28EA2E624FBD00147DAF /* QCartTestApp.app */;
@@ -195,6 +209,9 @@
 			);
 			mainGroup = 578C28E12E624FBD00147DAF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				578C29262E62F39400147DAF /* XCRemoteSwiftPackageReference "qcart-sdk-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 578C28EB2E624FBD00147DAF /* Products */;
 			projectDirPath = "";
@@ -550,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		578C29262E62F39400147DAF /* XCRemoteSwiftPackageReference "qcart-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/comoquiero/qcart-sdk-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		578C29282E62F4C500147DAF /* QCartSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 578C29262E62F39400147DAF /* XCRemoteSwiftPackageReference "qcart-sdk-ios" */;
+			productName = QCartSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 578C28E22E624FBD00147DAF /* Project object */;
 }
