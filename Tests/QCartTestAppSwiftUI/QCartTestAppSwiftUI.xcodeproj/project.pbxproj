@@ -114,7 +114,6 @@
 			buildPhases = (
 				578C28E62E624FBD00147DAF /* Sources */,
 				578C28E72E624FBD00147DAF /* Frameworks */,
-				578C28E82E624FBD00147DAF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -200,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestApp" */;
+			buildConfigurationList = 578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestAppSwiftUI" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -225,13 +224,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		578C28E82E624FBD00147DAF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		578C28F52E624FBF00147DAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,6 +406,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QCartTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -441,6 +434,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QCartTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -530,7 +524,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestApp" */ = {
+		578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestAppSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				578C29092E624FBF00147DAF /* Debug */,
