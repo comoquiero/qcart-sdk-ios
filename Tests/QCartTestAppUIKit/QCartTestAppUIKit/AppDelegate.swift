@@ -66,7 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // CartManager.shared.fillCart(with: skuList)
 
         // Update UI if root is ViewController
-        if let vc = self.window?.rootViewController as? ViewController {
+        if let nav = self.window?.rootViewController as? UINavigationController,
+        let vc = nav.viewControllers.first as? ViewController {
             vc.updateSkus(skus: skuList)
         }
     }
