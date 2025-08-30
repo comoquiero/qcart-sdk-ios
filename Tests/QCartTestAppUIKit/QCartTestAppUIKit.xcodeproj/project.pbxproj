@@ -10,43 +10,27 @@
 		578C29292E62F4C500147DAF /* QCartSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 578C29282E62F4C500147DAF /* QCartSDK */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		578C28F82E624FBF00147DAF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 578C28E22E624FBD00147DAF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 578C28E92E624FBD00147DAF;
-			remoteInfo = QCartTestApp;
-		};
-		578C29022E624FBF00147DAF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 578C28E22E624FBD00147DAF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 578C28E92E624FBD00147DAF;
-			remoteInfo = QCartTestApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		578C28EA2E624FBD00147DAF /* QCartTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QCartTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		578C28F72E624FBF00147DAF /* QCartTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QCartTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		578C29012E624FBF00147DAF /* QCartTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QCartTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		570662642E630CDB001DD787 /* Exceptions for "QCartTestApp" folder in "QCartTestApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 578C28E92E624FBD00147DAF /* QCartTestApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		578C28EC2E624FBD00147DAF /* QCartTestApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				570662642E630CDB001DD787 /* Exceptions for "QCartTestApp" folder in "QCartTestApp" target */,
+			);
 			path = QCartTestApp;
-			sourceTree = "<group>";
-		};
-		578C28FA2E624FBF00147DAF /* QCartTestAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = QCartTestAppTests;
-			sourceTree = "<group>";
-		};
-		578C29042E624FBF00147DAF /* QCartTestAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = QCartTestAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -60,20 +44,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		578C28F42E624FBF00147DAF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		578C28FE2E624FBF00147DAF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,8 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				578C28EC2E624FBD00147DAF /* QCartTestApp */,
-				578C28FA2E624FBF00147DAF /* QCartTestAppTests */,
-				578C29042E624FBF00147DAF /* QCartTestAppUITests */,
 				578C29272E62F4C500147DAF /* Frameworks */,
 				578C28EB2E624FBD00147DAF /* Products */,
 			);
@@ -92,8 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				578C28EA2E624FBD00147DAF /* QCartTestApp.app */,
-				578C28F72E624FBF00147DAF /* QCartTestAppTests.xctest */,
-				578C29012E624FBF00147DAF /* QCartTestAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,52 +97,6 @@
 			productReference = 578C28EA2E624FBD00147DAF /* QCartTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		578C28F62E624FBF00147DAF /* QCartTestAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 578C290E2E624FBF00147DAF /* Build configuration list for PBXNativeTarget "QCartTestAppTests" */;
-			buildPhases = (
-				578C28F32E624FBF00147DAF /* Sources */,
-				578C28F42E624FBF00147DAF /* Frameworks */,
-				578C28F52E624FBF00147DAF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				578C28F92E624FBF00147DAF /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				578C28FA2E624FBF00147DAF /* QCartTestAppTests */,
-			);
-			name = QCartTestAppTests;
-			packageProductDependencies = (
-			);
-			productName = QCartTestAppTests;
-			productReference = 578C28F72E624FBF00147DAF /* QCartTestAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		578C29002E624FBF00147DAF /* QCartTestAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 578C29112E624FBF00147DAF /* Build configuration list for PBXNativeTarget "QCartTestAppUITests" */;
-			buildPhases = (
-				578C28FD2E624FBF00147DAF /* Sources */,
-				578C28FE2E624FBF00147DAF /* Frameworks */,
-				578C28FF2E624FBF00147DAF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				578C29032E624FBF00147DAF /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				578C29042E624FBF00147DAF /* QCartTestAppUITests */,
-			);
-			name = QCartTestAppUITests;
-			packageProductDependencies = (
-			);
-			productName = QCartTestAppUITests;
-			productReference = 578C29012E624FBF00147DAF /* QCartTestAppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,17 +110,9 @@
 					578C28E92E624FBD00147DAF = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					578C28F62E624FBF00147DAF = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 578C28E92E624FBD00147DAF;
-					};
-					578C29002E624FBF00147DAF = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 578C28E92E624FBD00147DAF;
-					};
 				};
 			};
-			buildConfigurationList = 578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestApp" */;
+			buildConfigurationList = 578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestAppUIKit" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -218,28 +130,12 @@
 			projectRoot = "";
 			targets = (
 				578C28E92E624FBD00147DAF /* QCartTestApp */,
-				578C28F62E624FBF00147DAF /* QCartTestAppTests */,
-				578C29002E624FBF00147DAF /* QCartTestAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		578C28E82E624FBD00147DAF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		578C28F52E624FBF00147DAF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		578C28FF2E624FBF00147DAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,34 +152,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		578C28F32E624FBF00147DAF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		578C28FD2E624FBF00147DAF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		578C28F92E624FBF00147DAF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 578C28E92E624FBD00147DAF /* QCartTestApp */;
-			targetProxy = 578C28F82E624FBF00147DAF /* PBXContainerItemProxy */;
-		};
-		578C29032E624FBF00147DAF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 578C28E92E624FBD00147DAF /* QCartTestApp */;
-			targetProxy = 578C29022E624FBF00147DAF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		578C29092E624FBF00147DAF /* Debug */ = {
@@ -414,6 +283,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QCartTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -441,6 +311,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QCartTestApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -459,78 +330,10 @@
 			};
 			name = Release;
 		};
-		578C290F2E624FBF00147DAF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.qcart.QCartTestAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QCartTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QCartTestApp";
-			};
-			name = Debug;
-		};
-		578C29102E624FBF00147DAF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.qcart.QCartTestAppTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QCartTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QCartTestApp";
-			};
-			name = Release;
-		};
-		578C29122E624FBF00147DAF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.qcart.QCartTestAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = QCartTestApp;
-			};
-			name = Debug;
-		};
-		578C29132E624FBF00147DAF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.qcart.QCartTestAppUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = QCartTestApp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestApp" */ = {
+		578C28E52E624FBD00147DAF /* Build configuration list for PBXProject "QCartTestAppUIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				578C29092E624FBF00147DAF /* Debug */,
@@ -544,24 +347,6 @@
 			buildConfigurations = (
 				578C290C2E624FBF00147DAF /* Debug */,
 				578C290D2E624FBF00147DAF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		578C290E2E624FBF00147DAF /* Build configuration list for PBXNativeTarget "QCartTestAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				578C290F2E624FBF00147DAF /* Debug */,
-				578C29102E624FBF00147DAF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		578C29112E624FBF00147DAF /* Build configuration list for PBXNativeTarget "QCartTestAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				578C29122E624FBF00147DAF /* Debug */,
-				578C29132E624FBF00147DAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
