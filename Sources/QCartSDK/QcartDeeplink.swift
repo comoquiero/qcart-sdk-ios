@@ -2,6 +2,7 @@ import Foundation
 
 // MARK: - DeeplinkManager
 
+@MainActor
 public class DeeplinkManager {
 
     public static let shared = DeeplinkManager()
@@ -9,11 +10,13 @@ public class DeeplinkManager {
     private init() {}
 
     /// Called once at app launch to check if app was launched via deeplink
-    public func initManager(onResult: @escaping (DeeplinkResult) -> Void) {
+    public func initManager(onResult: @Sendable @escaping (DeeplinkResult) -> Void) {
         if let launchURL = getPendingLaunchURL() {
             QcartDeeplink.handle(url: launchURL) { skus in
-                let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
-                onResult(result)
+                Task { @MainActor in
+                    let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
+                    onResult(result)
+                }
             }
         }
     }
@@ -21,8 +24,10 @@ public class DeeplinkManager {
     /// Called whenever a URL arrives (custom scheme / universal link)
     public func handle(url: URL, _ onResult: @escaping (DeeplinkResult) -> Void) {
         QcartDeeplink.handle(url: url) { skus in
-            let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
-            onResult(result)
+            Task { @MainActor in
+                let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
+                onResult(result)
+            }
         }
     }
 
