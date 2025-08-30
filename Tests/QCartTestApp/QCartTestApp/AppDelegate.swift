@@ -3,6 +3,7 @@ import QCartSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?  // must be declared here
 
     func application(
         _ application: UIApplication,
