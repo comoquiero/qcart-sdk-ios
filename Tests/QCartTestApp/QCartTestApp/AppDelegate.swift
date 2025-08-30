@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
 
-        // Initialize SDK (optional, for internal setup)
+        // Initialize SDK; this will provide a list of already captured domains
         DeeplinkManager.shared.initManager { skuList in
             vc.updateSkus(skus: skuList)
         }
@@ -24,7 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // Only handle Universal Links that the client app already opens
+    // MARK: - Handle Custom URL Scheme (temporary for simulator)
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        handleQcartDeeplink(url: url)
+        return true
+    }
+
+    // MARK: - Handle Universal Links
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -32,14 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
               let url = userActivity.webpageURL else { return false }
 
-        // Only process if the client app has opened this URL
-        // SDK only filters by qcart=true
+        handleQcartDeeplink(url: url)
+        return true
+    }
+
+    // MARK: - Shared logic for handling qcart=true
+    private func handleQcartDeeplink(url: URL) {
+        // Only process links with qcart=true
         QcartDeeplink.handle(url: url) { skuList in
             if let vc = self.window?.rootViewController as? ViewController {
                 vc.updateSkus(skus: skuList)
             }
         }
 
-        return true
+        // Notify SDK if needed
+        DeeplinkManager.shared.handle(url: url)
     }
 }
