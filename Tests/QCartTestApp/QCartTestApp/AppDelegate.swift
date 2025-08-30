@@ -47,14 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Shared logic for handling qcart=true
     private func handleQcartDeeplink(url: URL) {
+
         // Only process links with qcart=true
         QcartDeeplink.handle(url: url) { skuList in
-            if let vc = self.window?.rootViewController as? ViewController {
-                vc.updateSkus(skus: skuList)
+            DispatchQueue.main.async {
+                if let vc = self.window?.rootViewController as? ViewController {
+                    vc.updateSkus(skus: skuList)
+                }
             }
         }
 
-        // Notify SDK if needed
         DeeplinkManager.shared.handle(url: url)
     }
 }
