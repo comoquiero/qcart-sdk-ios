@@ -11,30 +11,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
 
-        // ✅ Create window and assign to self.window
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
-        // ✅ Root view controller
         let vc = ViewController()
         let navController = UINavigationController(rootViewController: vc)
         self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
 
-        // ✅ Initialize SDK callback
-        DeeplinkManager.shared.initManager { skuList in
+        // Initialize SDK callback
+        DeeplinkManager.shared.initManager { result in
             DispatchQueue.main.async {
-                vc.updateSkus(skus: skuList)
+
+                if let qcart = result?.qcart, !qcart.skus.isEmpty {
+                    self.handleQCartSkus(qcart.skus) //QCart SKUs exist → handle them
+                    return;
+                }
+                
+                // No QCart SKUs → Normal app startup logic (home screen, load defaults, etc.)
+                if let vc = self.window?.rootViewController as? ViewController {
+                    vc.loadDefaultContent()
+                }
             }
         }
 
         return true
     }
 
-    // Custom URL scheme (for simulator testing)
-   func application(_ app: UIApplication,
+    // Custom URL scheme (simulator)
+    func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        handleQcartDeeplink(url: url)
+        handleIncomingDeeplink(url: url)
         return true
     }
 
@@ -46,21 +53,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
               let url = userActivity.webpageURL else { return false }
 
-        handleQcartDeeplink(url: url)
+        handleIncomingDeeplink(url: url)
         return true
     }
 
-    private func handleQcartDeeplink(url: URL) {
-        // SDK parses qcart=true and SKUs
-        QcartDeeplink.handle(url: url) { skuList in
+    // MARK: - Private helpers
+
+    private func handleIncomingDeeplink(url: URL) {
+        DeeplinkManager.shared.handle(url: url) { result in
             DispatchQueue.main.async {
-                if let vc = self.window?.rootViewController as? ViewController {
-                    vc.updateSkus(skus: skuList)
+
+                if let qcart = result?.qcart, !qcart.skus.isEmpty {
+                    self.handleQCartSkus(qcart.skus) //QCart SKUs exist → handle them
+                    return;
                 }
+                
+                // No QCart SKUs → Handle non-QCart links (custom scheme / universal link)
+                print("Handle non-QCart deeplink:", url.absoluteString)
+                DeeplinkManager.shared.handle(url: url) // optional if SDK has other logic
             }
         }
+    }
 
-        // Notify DeeplinkManager
-        DeeplinkManager.shared.handle(url: url)
+    private func handleQCartSkus(_ skuList: [(String, Int)]) {
+        // Example: fill cart
+        // CartManager.shared.fillCart(with: skuList)
+
+        // Update UI if root is ViewController
+        if let vc = self.window?.rootViewController as? ViewController {
+            vc.updateSkus(skus: skuList)
+        }
     }
 }

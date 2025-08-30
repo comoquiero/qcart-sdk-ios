@@ -1,8 +1,52 @@
 import Foundation
 
+// MARK: - DeeplinkManager
+
+public class DeeplinkManager {
+
+    public static let shared = DeeplinkManager()
+
+    private init() {}
+
+    /// Called once at app launch to check if app was launched via deeplink
+    public func initManager(onResult: @escaping (DeeplinkResult) -> Void) {
+        if let launchURL = getPendingLaunchURL() {
+            QcartDeeplink.handle(url: launchURL) { skus in
+                let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
+                onResult(result)
+            }
+        }
+    }
+
+    /// Called whenever a URL arrives (custom scheme / universal link)
+    public func handle(url: URL, onResult: @escaping (DeeplinkResult) -> Void) {
+        QcartDeeplink.handle(url: url) { skus in
+            let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
+            onResult(result)
+        }
+    }
+
+    // Example: simulate a launch URL (SDK internal)
+    private func getPendingLaunchURL() -> URL? {
+        return nil
+    }
+}
+
+// MARK: - DeeplinkResult
+
+public struct DeeplinkResult {
+    public struct QCart {
+        public let skus: [(String, Int)]
+    }
+    public let qcart: QCart
+}
+
+// MARK: - QcartDeeplink
+
 public struct QcartDeeplink {
 
-    public static func handle(url: URL?, onSkus: ([(String, Int)]) -> Void) {
+    // Parse a URL for qcart SKUs and call the closure if any are found
+    public static func handle(url: URL?, onSkus: @escaping ([(String, Int)]) -> Void) {
         guard let url = url else { return }
 
         guard let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems else {
