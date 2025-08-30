@@ -4,21 +4,27 @@ import QCartSDK
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
 
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = ViewController()
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
+        // 1️⃣ Create the window
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
 
-        // Initialize SDK; this will provide a list of already captured domains
+        // 2️⃣ Set the root view controller
+        let vc = ViewController()
+        window.rootViewController = vc
+
+        // 3️⃣ Make it visible
+        window.makeKeyAndVisible()
+
+        // 4️⃣ Initialize SDK callback (optional)
         DeeplinkManager.shared.initManager { skuList in
-            vc.updateSkus(skus: skuList)
+            DispatchQueue.main.async {
+                vc.updateSkus(skus: skuList)
+            }
         }
 
         return true
