@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
 
         // Initialize SDK callback
-        DeeplinkManager.shared.initManager { result in
+        DeeplinkManager.shared.handle(url: url, onResult: { result in
             DispatchQueue.main.async {
 
                 if let qcart = result?.qcart, !qcart.skus.isEmpty {
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     vc.loadDefaultContent()
                 }
             }
-        }
+        })
 
         return true
     }

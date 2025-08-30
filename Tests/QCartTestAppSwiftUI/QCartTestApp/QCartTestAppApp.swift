@@ -11,7 +11,7 @@ struct QCartTestApp: App {
                 .environmentObject(deeplinkData)
                 .onOpenURL { url in
                     // Pass all URLs to the SDK
-                    DeeplinkManager.shared.handle(url: url) { result in
+                    DeeplinkManager.shared.handle(url: url, onResult: { result in
                         DispatchQueue.main.async {
 
                             if let qcart = result?.qcart, !qcart.skus.isEmpty {
@@ -23,7 +23,7 @@ struct QCartTestApp: App {
                             print("Handle non-QCart deeplink:", url.absoluteString)
                             // [...]
                         }
-                    }
+                    })
                 }
         }
     }
