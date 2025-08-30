@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DeeplinkManager.shared.handle(url: url) { result in
             DispatchQueue.main.async {
 
-                if let qcart = result?.qcart, !qcart.skus.isEmpty {
+                if let qcart = result.qcart, !qcart.skus.isEmpty {
                     self.handleQCartSkus(qcart.skus) //QCart SKUs exist → handle them
                     return;
                 }
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DeeplinkManager.shared.handle(url: url) { result in
             DispatchQueue.main.async {
 
-                if let qcart = result?.qcart, !qcart.skus.isEmpty {
+                if let qcart = result.qcart, !qcart.skus.isEmpty {
                     self.handleQCartSkus(qcart.skus) //QCart SKUs exist → handle them
                     return;
                 }
