@@ -8,6 +8,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
+        // Set the title
+        self.title = "QCartTestAppUIKit"
+
         textView.font = .systemFont(ofSize: 20)
         textView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textView)

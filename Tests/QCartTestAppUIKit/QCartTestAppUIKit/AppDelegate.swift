@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // ✅ Root view controller
         let vc = ViewController()
-        self.window?.rootViewController = vc
+        let navController = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
 
         // ✅ Initialize SDK callback
