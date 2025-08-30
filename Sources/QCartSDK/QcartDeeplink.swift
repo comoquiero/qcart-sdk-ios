@@ -44,9 +44,6 @@ public struct DeeplinkResult {
         public let skus: [(String, Int)]
     }
     public let qcart: QCart?
-    
-    // You can add other SDK/deeplink results here
-    public let other: [String: Any]?
 }
 
 // MARK: - QcartDeeplink
