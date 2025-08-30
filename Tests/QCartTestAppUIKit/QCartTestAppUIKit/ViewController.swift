@@ -1,5 +1,3 @@
-import UIKit
-
 class ViewController: UIViewController {
 
     private let textView = UITextView()
@@ -8,10 +6,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        textView.frame = view.bounds
-        textView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         textView.font = .systemFont(ofSize: 20)
+        textView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(textView)
+
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 
     func updateSkus(skus: [(String, Int)]) {
