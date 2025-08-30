@@ -22,11 +22,12 @@ public class DeeplinkManager {
     }
 
     /// Called whenever a URL arrives (custom scheme / universal link)
-    public func handle(url: URL, _ onResult: @escaping (DeeplinkResult) -> Void) {
-        QcartDeeplink.handle(url: url) { skus in
-            Task { @MainActor in
+    @MainActor
+    public func handle(url: URL) async -> DeeplinkResult {
+        await withCheckedContinuation { continuation in
+            QcartDeeplink.handle(url: url) { skus in
                 let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
-                onResult(result)
+                continuation.resume(returning: result)
             }
         }
     }
