@@ -19,7 +19,7 @@ public class DeeplinkManager {
     }
 
     /// Called whenever a URL arrives (custom scheme / universal link)
-    public func handle(url: URL, onResult: @escaping (DeeplinkResult) -> Void) {
+    public func handle(url: URL, _ onResult: @escaping (DeeplinkResult) -> Void) {
         QcartDeeplink.handle(url: url) { skus in
             let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
             onResult(result)
@@ -38,7 +38,10 @@ public struct DeeplinkResult {
     public struct QCart {
         public let skus: [(String, Int)]
     }
-    public let qcart: QCart
+    public let qcart: QCart?
+    
+    // You can add other SDK/deeplink results here
+    public let other: [String: Any]?
 }
 
 // MARK: - QcartDeeplink
