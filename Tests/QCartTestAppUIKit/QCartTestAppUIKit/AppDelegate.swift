@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private helpers
     private func handleIncomingDeeplink(url: URL) {
         DeeplinkManager.shared.handle(url: url) { result in
-            DispatchQueue.main.async {
+            Task { @MainActor in
                 // Handle QCart SKUs if available
                 if let qcart = result.qcart, !qcart.skus.isEmpty {
                     self.handleQCartSkus(qcart.skus)
