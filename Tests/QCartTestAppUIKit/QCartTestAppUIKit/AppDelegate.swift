@@ -3,25 +3,24 @@ import QCartSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?  // must be declared here
+
+    var window: UIWindow?
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
 
-        // 1️⃣ Create the window
+        // Create window
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
 
-        // 2️⃣ Set the root view controller
+        // Root view controller
         let vc = ViewController()
         window.rootViewController = vc
-
-        // 3️⃣ Make it visible
         window.makeKeyAndVisible()
 
-        // 4️⃣ Initialize SDK callback (optional)
+        // SDK init callback
         DeeplinkManager.shared.initManager { skuList in
             DispatchQueue.main.async {
                 vc.updateSkus(skus: skuList)
@@ -31,16 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // MARK: - Handle Custom URL Scheme (temporary for simulator)
+    // Custom URL scheme (temporary for simulator)
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         handleQcartDeeplink(url: url)
         return true
     }
 
-    // MARK: - Handle Universal Links
+    // Universal Links
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -52,10 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    // MARK: - Shared logic for handling qcart=true
     private func handleQcartDeeplink(url: URL) {
-
-        // Only process links with qcart=true
         QcartDeeplink.handle(url: url) { skuList in
             DispatchQueue.main.async {
                 if let vc = self.window?.rootViewController as? ViewController {
