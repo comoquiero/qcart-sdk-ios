@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.example-qcart</string>
+			<string>com.qcarttestswiftui</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>qcarttestswiftui</string>
