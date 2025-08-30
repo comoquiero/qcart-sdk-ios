@@ -9,19 +9,7 @@ public class DeeplinkManager {
 
     private init() {}
 
-    /// Called once at app launch to check if app was launched via deeplink
-    public func initManager(onResult: @Sendable @escaping (DeeplinkResult) -> Void) {
-        if let launchURL = getPendingLaunchURL() {
-            QcartDeeplink.handle(url: launchURL) { skus in
-                Task { @MainActor in
-                    let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
-                    onResult(result)
-                }
-            }
-        }
-    }
-
-    /// Called whenever a URL arrives (custom scheme / universal link)
+    // MARK: - Async API (modern Swift)
     @MainActor
     public func handle(url: URL) async -> DeeplinkResult {
         await withCheckedContinuation { continuation in
@@ -29,6 +17,21 @@ public class DeeplinkManager {
                 let result = DeeplinkResult(qcart: DeeplinkResult.QCart(skus: skus))
                 continuation.resume(returning: result)
             }
+        }
+    }
+
+    // MARK: - Completion handler API (backward compatibility)
+    public func handle(url: URL, completion: @escaping (DeeplinkResult) -> Void) {
+        Task {
+            let result = await handle(url: url)
+            completion(result)
+        }
+    }
+
+    /// Called once at app launch to check if app was launched via deeplink
+    public func initManager(completion: @escaping (DeeplinkResult) -> Void) {
+        if let launchURL = getPendingLaunchURL() {
+            handle(url: launchURL, completion: completion)
         }
     }
 
@@ -65,7 +68,7 @@ public struct QcartDeeplink {
             return
         }
 
-        // Parse skus
+        // Parse SKUs (format: sku1:2,sku2:3)
         guard let skusParam = queryItems.first(where: { $0.name == "skus" })?.value else {
             return
         }
