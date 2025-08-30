@@ -11,7 +11,7 @@
 			<string>com.example-qcart</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>qcarttestuikit</string>
+				<string>qcarttestswiftui</string>
 			</array>
 		</dict>
 	</array>
