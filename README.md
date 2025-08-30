@@ -31,6 +31,6 @@ rm -rf .build
 swift run
 
 // You can trigger deep links using:
-xcrun simctl openurl booted "qcart://deeplink?qcart=true&skus=sku1:2,sku2:5"
+xcrun simctl openurl booted "https://test.abc?qcart=true&skus=sku1:2,sku2:5"
 
 ```

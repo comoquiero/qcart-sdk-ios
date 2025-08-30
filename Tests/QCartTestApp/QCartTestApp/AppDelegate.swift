@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
 
-        // Initialize SDK callback
+        // Initialize SDK (optional, for internal setup)
         DeeplinkManager.shared.initManager { skuList in
             vc.updateSkus(skus: skuList)
         }
@@ -24,8 +24,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        DeeplinkManager.shared.handle(url: url)
+    // Only handle Universal Links that the client app already opens
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let url = userActivity.webpageURL else { return false }
+
+        // Only process if the client app has opened this URL
+        // SDK only filters by qcart=true
+        QcartDeeplink.handle(url: url) { skuList in
+            if let vc = self.window?.rootViewController as? ViewController {
+                vc.updateSkus(skus: skuList)
+            }
+        }
+
         return true
     }
 }
