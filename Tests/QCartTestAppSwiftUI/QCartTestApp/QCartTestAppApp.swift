@@ -10,19 +10,18 @@ struct QCartTestApp: App {
             ContentView()
                 .environmentObject(deeplinkData)
                 .onOpenURL { url in
-                    // Pass all URLs to the SDK
-                    DeeplinkManager.shared.handle(url) { result in
-                        Task { @MainActor in
+                    Task { @MainActor in
+                        // Call the async handle method with await
+                        let result = await DeeplinkManager.shared.handle(url: url)
 
-                            if let qcart = result.qcart, !qcart.skus.isEmpty {
-                                self.handleQCartSkus(qcart.skus) //QCart SKUs exist → handle them
-                                return;
-                            }
-
-                            // No QCart SKUs → handle non-QCart links
-                            print("Handle non-QCart deeplink:", url.absoluteString)
-                            // [...]
+                        // Handle QCart SKUs if available
+                        if let qcart = result.qcart, !qcart.skus.isEmpty {
+                            self.handleQCartSkus(qcart.skus)
+                            return
                         }
+
+                        // No QCart SKUs → handle non-QCart links
+                        print("Handle non-QCart deeplink:", url.absoluteString)
                     }
                 }
         }
