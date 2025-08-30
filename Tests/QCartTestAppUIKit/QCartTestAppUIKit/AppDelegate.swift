@@ -1,4 +1,5 @@
 import UIKit
+import QCartSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // Custom URL scheme (for simulator testing)
-    func application(_ app: UIApplication,
+   func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         handleQcartDeeplink(url: url)
