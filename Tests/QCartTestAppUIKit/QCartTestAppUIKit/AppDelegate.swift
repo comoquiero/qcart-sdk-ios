@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Handle URL if app launched via deeplink
         if let url = launchOptions?[.url] as? URL {
             handleIncomingDeeplink(url: url)
-        } else {
-            vc.loadDefaultContent()
         }
 
         return true
@@ -59,9 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 // Fallback for non-QCart links
                 print("Handle non-QCart deeplink:", url.absoluteString)
-                if let vc = self.window?.rootViewController as? ViewController {
-                    vc.loadDefaultContent()
-                }
             }
         }
     }
