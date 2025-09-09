@@ -10,6 +10,10 @@ let package = Package(
             name: "QcartSDK",
             targets: ["QcartSDK"]
         )
+        .library(
+            name: "QcartTestAppLogic",
+            targets: ["QcartTestAppLogic"]
+        )
     ],
     targets: [
         // SDK library
@@ -22,18 +26,6 @@ let package = Package(
             name: "QcartTestAppLogic",
             dependencies: ["QcartSDK"],
             path: "Sources/QcartTestAppLogic"
-        ),
-        // SwiftUI app
-        .executableTarget(
-            name: "QcartTestAppSwiftUI",
-            dependencies: ["QcartTestAppLogic"],
-            path: "Sources/QcartTestAppSwiftUI"
-        ),
-        // UIKit app
-        .executableTarget(
-            name: "QcartTestAppUIKit",
-            dependencies: ["QcartTestAppLogic"],
-            path: "Sources/QcartTestAppUIKit"
         ),
         // CLI app remains executable
         .executableTarget(
