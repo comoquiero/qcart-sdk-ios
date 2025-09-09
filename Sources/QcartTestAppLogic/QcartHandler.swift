@@ -1,8 +1,8 @@
 import Foundation
 import QcartSDK
 
-public class DeeplinkResult {
-    public var fullResult: String = ""
+public class DeeplinkResult: ObservableObject {
+    @Published public var fullResult: String = ""
     public init() {}
 }
 
