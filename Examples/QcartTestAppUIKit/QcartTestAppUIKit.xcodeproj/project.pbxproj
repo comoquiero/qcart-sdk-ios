@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5719B9AF2E707C5500BB63D7 /* QcartSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 5719B9AE2E707C5500BB63D7 /* QcartSDK */; };
+		5719B9B12E707C5500BB63D7 /* QcartTestAppLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 5719B9B02E707C5500BB63D7 /* QcartTestAppLogic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5719B95D2E703F4600BB63D7 /* QcartTestAppUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QcartTestAppUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5719B9AF2E707C5500BB63D7 /* QcartSDK in Frameworks */,
+				5719B9B12E707C5500BB63D7 /* QcartTestAppLogic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +85,8 @@
 			);
 			name = QcartTestAppUIKit;
 			packageProductDependencies = (
+				5719B9AE2E707C5500BB63D7 /* QcartSDK */,
+				5719B9B02E707C5500BB63D7 /* QcartTestAppLogic */,
 			);
 			productName = QcartTestAppUIKit;
 			productReference = 5719B95D2E703F4600BB63D7 /* QcartTestAppUIKit.app */;
@@ -107,6 +116,9 @@
 			);
 			mainGroup = 5719B9542E703F4600BB63D7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5719B9AD2E707C5500BB63D7 /* XCLocalSwiftPackageReference "../../../qcart-sdk-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5719B95E2E703F4600BB63D7 /* Products */;
 			projectDirPath = "";
@@ -333,6 +345,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5719B9AD2E707C5500BB63D7 /* XCLocalSwiftPackageReference "../../../qcart-sdk-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../qcart-sdk-ios";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5719B9AE2E707C5500BB63D7 /* QcartSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QcartSDK;
+		};
+		5719B9B02E707C5500BB63D7 /* QcartTestAppLogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QcartTestAppLogic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5719B9552E703F4600BB63D7 /* Project object */;
 }

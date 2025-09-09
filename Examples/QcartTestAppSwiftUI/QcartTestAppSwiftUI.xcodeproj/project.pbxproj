@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5719B9B42E707C7C00BB63D7 /* QcartSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 5719B9B32E707C7C00BB63D7 /* QcartSDK */; };
+		5719B9B62E707C7C00BB63D7 /* QcartTestAppLogic in Frameworks */ = {isa = PBXBuildFile; productRef = 5719B9B52E707C7C00BB63D7 /* QcartTestAppLogic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5719B9462E703E3700BB63D7 /* QcartTestAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QcartTestAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5719B9B42E707C7C00BB63D7 /* QcartSDK in Frameworks */,
+				5719B9B62E707C7C00BB63D7 /* QcartTestAppLogic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = QcartTestAppSwiftUI;
 			packageProductDependencies = (
+				5719B9B32E707C7C00BB63D7 /* QcartSDK */,
+				5719B9B52E707C7C00BB63D7 /* QcartTestAppLogic */,
 			);
 			productName = QcartTestAppSwiftUI;
 			productReference = 5719B9462E703E3700BB63D7 /* QcartTestAppSwiftUI.app */;
@@ -94,6 +103,9 @@
 			);
 			mainGroup = 5719B93D2E703E3700BB63D7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5719B9B22E707C7C00BB63D7 /* XCLocalSwiftPackageReference "../../../qcart-sdk-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5719B9472E703E3700BB63D7 /* Products */;
 			projectDirPath = "";
@@ -252,7 +264,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -279,7 +291,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +332,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5719B9B22E707C7C00BB63D7 /* XCLocalSwiftPackageReference "../../../qcart-sdk-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../qcart-sdk-ios";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5719B9B32E707C7C00BB63D7 /* QcartSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QcartSDK;
+		};
+		5719B9B52E707C7C00BB63D7 /* QcartTestAppLogic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = QcartTestAppLogic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5719B93E2E703E3700BB63D7 /* Project object */;
 }
