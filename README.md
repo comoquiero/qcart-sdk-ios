@@ -14,7 +14,6 @@ dependencies: [
 ## Tests
 
 ### Test SDK from command line
-
 ```
 swift run QcartTestAppCLI
 ```
@@ -22,14 +21,14 @@ swift run QcartTestAppCLI
 ### Test SDK from App
 
 #### SwiftUI
-```
-swift run QcartTestAppSwiftUI
-```
+- Open repo in Xcode
+- Select target Sources/QcartTestAppSwiftUI
+- Run
 
 #### UIKit
-```
-swift run QcartTestAppUIKit
-```
+- Open repo in Xcode
+- Select target Sources/QcartTestAppUIKit
+- Run
 
 #### Deeplink
 You can trigger deep links using:

@@ -2,10 +2,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "QcartSDK", // internal package name
-    platforms: [
-        .iOS(.v13)
-    ],
+    name: "QcartSDK",
+    platforms: [.iOS(.v13)],
     products: [
         .library(
             name: "QcartSDK",
@@ -21,14 +19,18 @@ let package = Package(
             name: "QcartTestAppLogic",
             dependencies: ["QcartSDK"]
         ),
-        .executableTarget(
+        // Keep UI apps as library targets (run via Xcode)
+        .target(
             name: "QcartTestAppSwiftUI",
-            dependencies: ["QcartTestAppLogic"]
+            dependencies: ["QcartTestAppLogic"],
+            path: "Sources/QcartTestAppSwiftUI"
         ),
-        .executableTarget(
+        .target(
             name: "QcartTestAppUIKit",
-            dependencies: ["QcartTestAppLogic"]
+            dependencies: ["QcartTestAppLogic"],
+            path: "Sources/QcartTestAppUIKit"
         ),
+        // CLI app remains executable
         .executableTarget(
             name: "QcartTestAppCLI",
             dependencies: ["QcartTestAppLogic"]
