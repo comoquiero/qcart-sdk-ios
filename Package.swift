@@ -18,7 +18,8 @@ let package = Package(
         ),
         .target(
             name: "QcartTestAppLogic",
-            dependencies: ["QcartSDK"]
+            dependencies: ["QcartSDK"],
+            path: "Sources/QcartTestAppLogic"
         ),
         // Keep UI apps as library targets (run via Xcode)
         .target(
@@ -35,6 +36,7 @@ let package = Package(
         .executableTarget(
             name: "QcartTestAppCLI",
             dependencies: ["QcartTestAppLogic"]
+            path: "Sources/QcartTestAppCLI"
         )
     ]
 )
