@@ -10,7 +10,7 @@ The native iOS SDK for handling Qcart deeplinks and cart parsing.
   s.author           = { 'Qcart' => 'dev@qcart.com' }
   s.source           = { :git => 'https://github.com/comoquiero/qcart-sdk-ios.git', :tag => s.version.to_s }
 
-  s.platform         = :ios, '14.0'
+  s.platform         = :ios, '15.0'
   s.swift_version    = '5.0'
 
   # Include your Swift sources
