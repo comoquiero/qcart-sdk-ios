@@ -21,8 +21,12 @@ let package = Package(
             name: "QcartTestAppLogic",
             dependencies: ["QcartSDK"]
         ),
-        .target(
+        .executableTarget(
             name: "QcartTestAppSwiftUI",
+            dependencies: ["QcartTestAppLogic"]
+        ),
+        .executableTarget(
+            name: "QcartTestAppUIKit",
             dependencies: ["QcartTestAppLogic"]
         ),
         .executableTarget(
