@@ -35,7 +35,7 @@ let package = Package(
         // CLI app remains executable
         .executableTarget(
             name: "QcartTestAppCLI",
-            dependencies: ["QcartTestAppLogic"]
+            dependencies: ["QcartTestAppLogic"],
             path: "Sources/QcartTestAppCLI"
         )
     ]
