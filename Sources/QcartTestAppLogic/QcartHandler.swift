@@ -24,7 +24,7 @@ public class QcartHandler {
         queryParameters: \(result.queryParameters)
         fragmentParameters: \(result.fragmentParameters)
         isQcart: \(result.isQcart)
-        skus: [\(result.skus.map { "{\"sku\":\"\($0.0)\",\"quantity\":\($0.1)}" }.joined(separator: ","))]
+        skus: [\(result.skus.map { "{\"sku\":\"\($0.sku)\",\"quantity\":\($0.quantity)}" }.joined(separator: ","))]
         """
         deeplinkResult.fullResult = fullResult
         print(fullResult)
