@@ -1,0 +1,2 @@
+INFOPLIST_FILE = Examples/QcartTestAppSwiftUI/QcartTestAppSwiftUI/Info.plist
+GENERATE_INFOPLIST_FILE = NO
