@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "QcartSDK",
             targets: ["QcartSDK"]
-        )
+        ),
         .library(
             name: "QcartTestAppLogic",
             targets: ["QcartTestAppLogic"]

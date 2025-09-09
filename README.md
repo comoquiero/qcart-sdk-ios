@@ -13,6 +13,11 @@ dependencies: [
 
 ## Tests
 
+Open the workspace
+```
+open -a Xcode QcartSDK.xcworkspace
+```
+
 ### Test SDK from command line
 ```
 swift run QcartTestAppCLI
