@@ -12,22 +12,25 @@ let package = Package(
         )
     ],
     targets: [
+        // SDK library
         .target(
             name: "QcartSDK",
             path: "Sources/QcartSDK"
         ),
+        // Shared logic library
         .target(
             name: "QcartTestAppLogic",
             dependencies: ["QcartSDK"],
             path: "Sources/QcartTestAppLogic"
         ),
-        // Keep UI apps as library targets (run via Xcode)
-        .target(
+        // SwiftUI app
+        .executableTarget(
             name: "QcartTestAppSwiftUI",
             dependencies: ["QcartTestAppLogic"],
             path: "Sources/QcartTestAppSwiftUI"
         ),
-        .target(
+        // UIKit app
+        .executableTarget(
             name: "QcartTestAppUIKit",
             dependencies: ["QcartTestAppLogic"],
             path: "Sources/QcartTestAppUIKit"
