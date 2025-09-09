@@ -1,6 +1,6 @@
-# QCart SDK
+# Qcart SDK
 
-iOS SDK for handling QCart deep links.
+iOS SDK for handling Qcart deep links.
 
 ## Installation
 
@@ -16,21 +16,23 @@ dependencies: [
 ### Test SDK from command line
 
 ```
-cd Tests/QCartTestCLI
-swift package clean
-rm -rf .build
-swift run
+swift run QcartTestAppCLI
 ```
 
 ### Test SDK from App
 
+#### SwiftUI
 ```
-cd Tests/QCartTestApp
-swift package clean
-rm -rf .build
-swift run
+swift run QcartTestAppSwiftUI
+```
 
-// You can trigger deep links using:
-xcrun simctl openurl booted "https://test.abc?qcart=true&skus=sku1:2,sku2:5"
+#### UIKit
+```
+swift run QcartTestAppUIKit
+```
 
+#### Deeplink
+You can trigger deep links using:
+```
+xcrun simctl openurl booted "https://test.abc/path/name?qcart=true&skus=111,222:3#hashparam=123"
 ```

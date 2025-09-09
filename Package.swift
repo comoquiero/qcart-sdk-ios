@@ -2,25 +2,32 @@
 import PackageDescription
 
 let package = Package(
-    name: "QCartSDK", // internal package name
+    name: "QcartSDK", // internal package name
     platforms: [
         .iOS(.v13)
     ],
     products: [
         .library(
-            name: "QCartSDK",
-            targets: ["QCartSDK"]
+            name: "QcartSDK",
+            targets: ["QcartSDK"]
         )
     ],
     targets: [
         .target(
-            name: "QCartSDK",
-            path: "Sources/QCartSDK"
+            name: "QcartSDK",
+            path: "Sources/QcartSDK"
         ),
-        .testTarget(
-            name: "QCartSDKTests",
-            dependencies: ["QCartSDK"],
-            path: "Tests/QCartSDKTests"
+        .target(
+            name: "QcartTestAppLogic",
+            dependencies: ["QcartSDK"]
+        ),
+        .target(
+            name: "QcartTestAppSwiftUI",
+            dependencies: ["QcartTestAppLogic"]
+        ),
+        .executableTarget(
+            name: "QcartTestAppCLI",
+            dependencies: ["QcartTestAppLogic"]
         )
     ]
 )

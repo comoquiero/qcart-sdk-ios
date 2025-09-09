@@ -1,0 +1,32 @@
+import Foundation
+import QcartSDK
+
+public class DeeplinkResult {
+    public var fullResult: String = ""
+    public init() {}
+}
+
+@MainActor
+public class QcartHandler {
+
+    private let qcartManager: QcartManager
+
+    public init(qcartManager: QcartManager = QcartManager()) {
+        self.qcartManager = qcartManager
+    }
+
+    public func handle(url: URL, deeplinkResult: DeeplinkResult) {
+        // All work runs on MainActor; no Sendable needed
+        let result = qcartManager.handle(url: url)
+        let fullResult = """
+        url: \(result.url ?? "")
+        pathSegments: \(result.pathSegments)
+        queryParameters: \(result.queryParameters)
+        fragmentParameters: \(result.fragmentParameters)
+        isQcart: \(result.isQcart)
+        skus: [\(result.skus.map { "{\"sku\":\"\($0.0)\",\"quantity\":\($0.1)}" }.joined(separator: ","))]
+        """
+        deeplinkResult.fullResult = fullResult
+        print(fullResult)
+    }
+}
