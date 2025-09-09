@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "QcartSDK",
+    defaultLocalization: "en",
     platforms: [.iOS(.v13)],
     products: [
         .library(
