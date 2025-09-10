@@ -6,6 +6,15 @@
     <key>CFBundleIdentifier</key>
     <string>app.qcart.QcartTestAppUIKit</string>
 
+    <!-- Executable (usually the target name) -->
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+
+    <!-- App display name -->
+    <key>CFBundleName</key>
+    <string>QcartTestAppUIKit</string>
+
+    <!-- URL schemes -->
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
