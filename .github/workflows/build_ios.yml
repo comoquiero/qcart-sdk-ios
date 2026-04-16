@@ -1,0 +1,24 @@
+name: Build XCFramework
+
+# Esto permite que corras el proceso manualmente con un botón en GitHub
+on:
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: macos-latest # ¡Aquí le pedimos a GitHub una Mac gratis!
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Dar permisos y ejecutar el script
+        run: |
+          chmod +x build_xcframework.sh
+          ./build_xcframework.sh
+
+      - name: Subir el XCFramework para descargar
+        uses: actions/upload-artifact@v4
+        with:
+          name: QcartSDK-XCFramework
+          path: build/QcartSDK.xcframework
