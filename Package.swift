@@ -8,6 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "QcartSDK",
+            type: .dynamic,
             targets: ["QcartSDK"]
         ),
         .library(
