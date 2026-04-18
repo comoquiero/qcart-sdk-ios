@@ -15,7 +15,9 @@ xcodebuild archive \
   -destination 'generic/platform=iOS' \
   -archivePath './build/QcartSDK-iphoneos.xcarchive' \
   SKIP_INSTALL=NO \
-  BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+  BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+  DEFINES_MODULE=YES \
+  SWIFT_EMIT_MODULE_INTERFACE=YES
 
 echo "⚙️ Compilando para Simuladores iOS (x86_64 y ARM64)..."
 xcodebuild archive \
@@ -25,7 +27,9 @@ xcodebuild archive \
   -destination 'generic/platform=iOS Simulator' \
   -archivePath './build/QcartSDK-iphonesimulator.xcarchive' \
   SKIP_INSTALL=NO \
-  BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+  BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
+  DEFINES_MODULE=YES \
+  SWIFT_EMIT_MODULE_INTERFACE=YES
 
 echo "🔍 Buscando las rutas exactas de los frameworks compilados..."
 FRAMEWORK_IOS=$(find ./build/QcartSDK-iphoneos.xcarchive -name "*.framework" -type d | head -n 1)
