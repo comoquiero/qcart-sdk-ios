@@ -7,7 +7,6 @@ WORKSPACE_NAME="QcartSDK.xcworkspace"
 # Crear carpeta temporal para los archivos de compilación
 mkdir -p build
 
-# --- 1. COMPILAR PARA IPHONE FISICO ---
 echo "⚙️ Compilando para dispositivos iOS (ARM64)..."
 xcodebuild archive \
   -workspace $WORKSPACE_NAME \
@@ -15,19 +14,11 @@ xcodebuild archive \
   -configuration Release \
   -destination 'generic/platform=iOS' \
   -archivePath './build/QcartSDK-iphoneos.xcarchive' \
-  -derivedDataPath './build/dd-ios' \
   SKIP_INSTALL=NO \
   BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
   DEFINES_MODULE=YES \
-  SWIFT_EMIT_MODULE_INTERFACE=YES \
-  OTHER_SWIFT_FLAGS="-enable-library-evolution -emit-module-interface"
+  SWIFT_EMIT_MODULE_INTERFACE=YES
 
-# 🚑 FIX APPLE BUG: Rescatar el .swiftmodule oculto y meterlo a la fuerza en el Framework
-FRAMEWORK_IOS=$(find ./build/QcartSDK-iphoneos.xcarchive -name "$SCHEME_NAME.framework" | head -n 1)
-mkdir -p "$FRAMEWORK_IOS/Modules"
-find ./build/dd-ios -name "$SCHEME_NAME.swiftmodule" -type d -exec cp -r {} "$FRAMEWORK_IOS/Modules/" \;
-
-# --- 2. COMPILAR PARA SIMULADOR ---
 echo "⚙️ Compilando para Simuladores iOS (x86_64 y ARM64)..."
 xcodebuild archive \
   -workspace $WORKSPACE_NAME \
@@ -35,17 +26,10 @@ xcodebuild archive \
   -configuration Release \
   -destination 'generic/platform=iOS Simulator' \
   -archivePath './build/QcartSDK-iphonesimulator.xcarchive' \
-  -derivedDataPath './build/dd-sim' \
   SKIP_INSTALL=NO \
   BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
   DEFINES_MODULE=YES \
-  SWIFT_EMIT_MODULE_INTERFACE=YES\
-  OTHER_SWIFT_FLAGS="-enable-library-evolution -emit-module-interface"
-
-# 🚑 FIX APPLE BUG: Rescatar el .swiftmodule oculto y meterlo a la fuerza en el Framework
-FRAMEWORK_SIM=$(find ./build/QcartSDK-iphonesimulator.xcarchive -name "$SCHEME_NAME.framework" | head -n 1)
-mkdir -p "$FRAMEWORK_SIM/Modules"
-find ./build/dd-sim -name "$SCHEME_NAME.swiftmodule" -type d -exec cp -r {} "$FRAMEWORK_SIM/Modules/" \;
+  SWIFT_EMIT_MODULE_INTERFACE=YES
 
 echo "🔍 Buscando las rutas exactas de los frameworks compilados..."
 FRAMEWORK_IOS=$(find ./build/QcartSDK-iphoneos.xcarchive -name "*.framework" -type d | head -n 1)
